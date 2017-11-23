@@ -1,17 +1,16 @@
 package br.com.alura.jdbc;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class TestaListagem {
 	public static void main(String[] args) throws SQLException {
-		Connection con = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/loja-virtual","SA","");
+		Connection con = DataBase.getConnection();
 		System.out.println("Abrindo uma conexão!");
 		Statement statement = con.createStatement();
-		//boolean resultado = statement.execute("select * from produto");
+		boolean resultado = statement.execute("select * from produto");
 		ResultSet resultSet = statement.getResultSet();
 		while(resultSet.next()){
 			String id = resultSet.getString("id");
@@ -23,4 +22,5 @@ public class TestaListagem {
 		resultSet.close();
 		statement.close();
 	}
+
 }
