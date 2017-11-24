@@ -22,5 +22,4 @@ public class TestaListagem {
 		resultSet.close();
 		statement.close();
 	}
-
 }
